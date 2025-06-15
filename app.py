@@ -5,11 +5,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Check if output.png exists
-    path_to_file = os.path.join(os.getcwd(), 'output.png')
-    if not os.path.exists(path_to_file):
-        return "<h1>Image not found!</h1>", 404
-    
     # HTML template to display the image with some style
     html = '''
     <!DOCTYPE html>
@@ -45,8 +40,12 @@ def home():
 
 @app.route('/image')
 def image():
-    path_to_file = os.path.join(os.getcwd(), 'output.png')
-    return send_file(path_to_file, mimetype='image/png')
+    path_to_file = os.path.join(os.getcwd(), 'results', 'blended_output.jpg')
+    
+    if not os.path.exists(path_to_file):
+        return "<h1>Image not found!</h1>", 404
+    
+    return send_file(path_to_file, mimetype='image/jpeg')
 
 if __name__ == '__main__':
     app.run(debug=True)
