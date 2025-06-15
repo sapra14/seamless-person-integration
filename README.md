@@ -1,6 +1,6 @@
 seamless-person-integration/
 │
-├── assets/ # Input images (person, background, etc.)
+├──assets/ # Input images (person, background, etc.)
 │ ├── person.jpg
 │ ├── background.jpg
 │ └── ...
