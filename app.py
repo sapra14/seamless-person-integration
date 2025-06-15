@@ -1,13 +1,10 @@
+import os
 from flask import Flask, send_file
-import subprocess
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Automatically run the integration process (or just show result)
-    subprocess.run(["python3", "main.py"])
-    return send_file("output.png", mimetype='image/png')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    # Assuming output.png is in the same folder as app.py
+    path_to_file = os.path.join(os.path.dirname(__file__), 'output.png')
+    return send_file(path_to_file, mimetype='image/png')
