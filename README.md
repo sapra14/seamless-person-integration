@@ -1,3 +1,6 @@
+## Project Directory Structure
+
+
 seamless-person-integration/
 │
 ├──assets/ # Input images (person, background, etc.)
